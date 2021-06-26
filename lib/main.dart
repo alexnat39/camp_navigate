@@ -2,6 +2,8 @@ import 'package:camp_navigate/Admin/admin.dart';
 import 'package:camp_navigate/Pages/AuthPages/login_page.dart';
 import 'package:camp_navigate/Pages/AuthPages/welcome_page.dart';
 import 'package:camp_navigate/Pages/main_page.dart';
+import 'package:camp_navigate/Services/mental_health_activity_service.dart';
+import 'package:camp_navigate/Services/nutrition_activity_service.dart';
 import 'package:camp_navigate/Services/physical_activity_service.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -25,6 +27,8 @@ void setupLocator() {
   GetIt.instance.registerLazySingleton(() => AuthenticationService());
   GetIt.instance.registerLazySingleton(() => UserService());
   GetIt.instance.registerLazySingleton(() => PhysicalActivityService());
+  GetIt.instance.registerLazySingleton(() => NutritionActivityService());
+  GetIt.instance.registerLazySingleton(() => MentalHealthActivityService());
 }
 
 Future<void> main() async {
@@ -83,9 +87,17 @@ class _MyAppState extends State<MyApp> {
           theme: ThemeData(
             fontFamily: 'GothamPro',
           ),
+
+
+          initialRoute: "/home",/*(FirebaseAuth.instance.currentUser != null)
+              ? (fetchUserData() ? '/admin':'/admin')
+              : '/welcome', */
+
+
           initialRoute: (FirebaseAuth.instance.currentUser != null)
               ? (widget.isUserAdmin ? '/admin' : '/home')
               : '/welcome',
+
           routes: {
             "/home": (context) => MainPage(),
             '/admin': (context) => Admin(),

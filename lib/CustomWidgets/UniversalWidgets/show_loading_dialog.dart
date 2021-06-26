@@ -18,7 +18,7 @@ void showLoadingDialog(BuildContext context) {
           child: Center(
               child: CircularProgressIndicator(
                   valueColor: new AlwaysStoppedAnimation<Color>(
-                      CustomColors.PURPLE))),
+                      CustomColors.BLUE))),
         ),
         // },
         // )
