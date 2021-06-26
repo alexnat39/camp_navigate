@@ -17,6 +17,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'Models/UserVM.dart';
 import 'Pages/AuthPages/reset_password_page.dart';
 import 'Pages/AuthPages/sign_up_page.dart';
+import 'Pages/RewardsPage/submit_receipt.dart';
 import 'Pages/TrackerPages/mental_health_tracker_page.dart';
 import 'Pages/TrackerPages/nutrition_tracker_page.dart';
 import 'Pages/TrackerPages/physical_activities_tracker_page.dart';
@@ -115,6 +116,7 @@ class _MyAppState extends State<MyApp> {
                 "/physical": (context) => PhysicalActivitiesTrackerPage(),
                 "/nutrition": (context) => NutritionTrackerPage(),
                 "/mental": (context) => MentalHealthTrackerPage(),
+                '/receipt': (context) => SubmitRecipt(),
               },
             );
           },
@@ -136,6 +138,7 @@ class NoGlowBehavior extends ScrollBehavior {
 }
 
 Future<bool> fetchUserData(context) async {
+
   bool _admin = false;
   bool errorPresent = false;
   await FirebaseFirestore.instance

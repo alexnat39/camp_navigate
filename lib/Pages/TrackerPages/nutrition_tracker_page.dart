@@ -134,7 +134,7 @@ class _NutritionTrackerPageState extends State<NutritionTrackerPage> {
       height: 100,
       child: FloatingActionButton.extended(
         //navigate to scan a receipt page
-        onPressed: () {},
+        onPressed: () {Navigator.pushNamed(context, '/receipt');},
         label: Text(
           'Scan a receipt',
           style: TextStyle(
