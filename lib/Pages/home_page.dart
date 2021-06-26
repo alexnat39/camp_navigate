@@ -24,11 +24,12 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
 
     return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
 
         Container(
+          width: MediaQuery.of(context).size.width,
           height: 200,
           child: ListView.builder(
             itemCount: 4,
@@ -48,14 +49,10 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
 
-        SizedBox(height: 40),
-
         CustomPhysicalButton(
             func: () => Navigator.pushNamed(context, "/physical")),
-        SizedBox(height: 50),
         CustomNutritionButton(
             func: () => Navigator.pushNamed(context, "/nutrition")),
-        SizedBox(height: 50),
         CustomMentalHealthButton(
             func: () => Navigator.pushNamed(context, "/mental")),
       ],
