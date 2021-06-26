@@ -6,7 +6,6 @@ import 'package:camp_navigate/CustomWidgets/UniversalWidgets/show_loading_dialog
 import 'package:camp_navigate/CustomWidgets/UniversalWidgets/show_snack_bar.dart';
 import 'package:camp_navigate/Helpers/custom_colors.dart';
 import 'package:camp_navigate/Services/mental_health_activity_service.dart';
-import 'package:camp_navigate/Services/physical_activity_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -58,7 +57,7 @@ class _MentalHealthTrackerPageState extends State<MentalHealthTrackerPage> {
                     child: DropdownButton(
                         isExpanded: true,
                         hint: Text(
-                          "What did you do today?",
+                          "What do you want to track?",
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
                               fontFamily: "GothamProNormal",
