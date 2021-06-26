@@ -341,23 +341,32 @@ class _SignUpPageState extends State<SignUpPage> {
                                           lastName: _lastNameController.text,
                                           email: _emailController.text,
                                           id: FirebaseAuth.instance.currentUser!.uid);
-                                      await userService.fetchUserData().then((data) {
+                                      await userService.fetchUserData().then((data) async {
                                         print(data);
                                         var _userVM = Provider.of<UserVM>(context,
                                             listen: false);
                                         _userVM.firstName = data['first_name'];
                                         _userVM.lastName = data['last_name'];
                                         _userVM.email = data['email'];
+                                        _userVM.totalPoints = data['total_points'];
                                         _userVM.password = _passwordController.text;
                                         _userVM.id =
                                             FirebaseAuth.instance.currentUser!.uid;
+                                        SharedPreferences _prefs =
+                                            await SharedPreferences.getInstance();
+                                        _prefs.setString(
+                                            "email", _emailController.text);
+                                        _prefs.setString(
+                                            "password", _passwordController.text);
+                                        _prefs.setString(
+                                            "first_name", data['first_name']);
+                                        _prefs.setString(
+                                            "last_name", data['last_name']);
+                                        _prefs.setInt(
+                                            "total_points", data['total_points']);
+                                        _prefs.setString(
+                                            "id", data['id']);
                                       });
-                                      SharedPreferences _prefs =
-                                      await SharedPreferences.getInstance();
-                                      _prefs.setString(
-                                          "email", _emailController.text);
-                                      _prefs.setString(
-                                          "password", _passwordController.text);
                                       //hiding loading dialog
                                       Navigator.pop(context);
                                       Navigator.pushNamed(context, "/home");

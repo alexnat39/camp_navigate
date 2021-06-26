@@ -13,6 +13,7 @@ import 'package:flutter/services.dart';
 import 'package:get_it/get_it.dart';
 import 'package:provider/provider.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'Models/UserVM.dart';
 import 'Pages/AuthPages/reset_password_page.dart';
 import 'Pages/AuthPages/sign_up_page.dart';
@@ -43,10 +44,20 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+
+  SharedPreferences? _prefs;
+
+  Future<void> _getSharedPreferencesInstance() async {
+    //setting up the shared preferences
+    _prefs = await SharedPreferences.getInstance();
+  }
+
   @override
   void initState() {
+    _getSharedPreferencesInstance();
     super.initState();
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -64,8 +75,14 @@ class _MyAppState extends State<MyApp> {
       child: MultiProvider(
         providers: [
           ChangeNotifierProvider<UserVM>(
-            create: (context) => UserVM(),
-          )
+            create: (context) => (_prefs!.getString("email") != null) ? UserVM(
+              id: _prefs!.getString("id"),
+              email: _prefs!.getString("email"),
+              firstName: _prefs!.getString("first_name"),
+              lastName: _prefs!.getString("last_name"),
+              totalPoints: _prefs!.getInt("total_points"),
+            ) : UserVM(),
+          ),
         ],
         child: FutureBuilder(
           future: fetchUserData(context),
@@ -90,7 +107,7 @@ class _MyAppState extends State<MyApp> {
                   : '/welcome',
               routes: {
                 "/home": (context) => MainPage(),
-                '/admin': (context) => Admin(),
+                "/admin": (context) => Admin(),
                 "/welcome": (context) => WelcomeScreenPage(),
                 "/login": (context) => LoginPage(),
                 "/signup": (context) => SignUpPage(),
@@ -126,7 +143,6 @@ Future<bool> fetchUserData(context) async {
       .doc(FirebaseAuth.instance.currentUser!.uid)
       .get()
       .then((value) => {
-    print(value['email']),
     _admin = value['admin'],
     print("admin: $_admin")
   })

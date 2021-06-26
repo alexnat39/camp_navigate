@@ -39,6 +39,7 @@ class _MainPageState extends State<MainPage> {
           CustomContainerAppBar(
             title: "Camp Navigate",
             isInitialPage: true,
+            isLogOutButtonNeeded: true,
           ),
           _widgetOptions.elementAt(_selectedIndex),
         ],
