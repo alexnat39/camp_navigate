@@ -38,7 +38,7 @@ class _WelcomeScreenPageState extends State<WelcomeScreenPage> {
                     child: Container(
                       width: height * 0.224,
                       child: Text(
-                        "Camp Navigate",
+                        "Healthy Habits",
                         style: TextStyle(fontSize: 24),
                         textAlign: TextAlign.center,
                       )
@@ -51,8 +51,8 @@ class _WelcomeScreenPageState extends State<WelcomeScreenPage> {
                   child: CustomUniversalButton(
                     text: "Log In",
                     mainColor: CustomColors.WHITE,
-                    textColor: CustomColors.PURPLE,
-                    borderColor: CustomColors.PURPLE,
+                    textColor: CustomColors.BLUE,
+                    borderColor: CustomColors.BLUE,
                     onPressedFunction: () {
                       Navigator.pushNamed(context, '/login');
                     },
@@ -60,9 +60,9 @@ class _WelcomeScreenPageState extends State<WelcomeScreenPage> {
                 ),
                 CustomUniversalButton(
                   text: "Sign Up",
-                  mainColor: CustomColors.PURPLE,
+                  mainColor: CustomColors.BLUE,
                   textColor: CustomColors.WHITE,
-                  borderColor: CustomColors.PURPLE,
+                  borderColor: CustomColors.BLUE,
                   onPressedFunction: () {
                     Navigator.pushNamed(context, '/signup');
                   },

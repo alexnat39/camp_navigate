@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:camp_navigate/Helpers/custom_colors.dart';
 import 'Add/Add.dart';
 import 'FireStoreLV.dart';
 
@@ -16,7 +16,7 @@ class _ExerciseState extends State<Exercise> {
       appBar: AppBar(title: Text('Exercise'),),
       body: FireStoreLV('Exercise'),
       floatingActionButton: FloatingActionButton(child: Icon(Icons.add),
-          backgroundColor: Colors.green,
+          backgroundColor: CustomColors.BLUE,
           onPressed: () {
             Navigator.push(context,
                 MaterialPageRoute(builder: (context) => Add('Exercise')));

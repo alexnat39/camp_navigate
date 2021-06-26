@@ -95,7 +95,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                   borderSide: BorderSide(color: Colors.red[300]!),
                                 ),
                                 focusedBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(color: CustomColors.PURPLE),
+                                  borderSide: BorderSide(color: CustomColors.BLUE),
                                 ),
                                 border: UnderlineInputBorder(
                                     borderSide: BorderSide(color: CustomColors.GREY)),
@@ -140,7 +140,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                   borderSide: BorderSide(color: Colors.red[300]!),
                                 ),
                                 focusedBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(color: CustomColors.PURPLE),
+                                  borderSide: BorderSide(color: CustomColors.BLUE),
                                 ),
                                 border: UnderlineInputBorder(
                                     borderSide: BorderSide(color: CustomColors.GREY)),
@@ -182,7 +182,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                   borderSide: BorderSide(color: Colors.red[300]!),
                                 ),
                                 focusedBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(color: CustomColors.PURPLE),
+                                  borderSide: BorderSide(color: CustomColors.BLUE),
                                 ),
                                 border: UnderlineInputBorder(
                                     borderSide: BorderSide(color: CustomColors.GREY)),
@@ -229,7 +229,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                   borderSide: BorderSide(color: Colors.red[300]!),
                                 ),
                                 focusedBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(color: CustomColors.PURPLE),
+                                  borderSide: BorderSide(color: CustomColors.BLUE),
                                 ),
                                 border: UnderlineInputBorder(
                                     borderSide: BorderSide(color: CustomColors.GREY)),
@@ -272,7 +272,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                   borderSide: BorderSide(color: Colors.red[300]!),
                                 ),
                                 focusedBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(color: CustomColors.PURPLE),
+                                  borderSide: BorderSide(color: CustomColors.BLUE),
                                 ),
                                 border: UnderlineInputBorder(
                                     borderSide: BorderSide(color: CustomColors.GREY)),
@@ -310,8 +310,8 @@ class _SignUpPageState extends State<SignUpPage> {
                         child: CustomUniversalButton(
                           text: "Sign Up",
                           mainColor: CustomColors.WHITE,
-                          textColor: CustomColors.PURPLE,
-                          borderColor: CustomColors.PURPLE,
+                          textColor: CustomColors.BLUE,
+                          borderColor: CustomColors.BLUE,
                           onPressedFunction: () async {
                             _emailFormKey.currentState!.validate();
                             _firstNameFormKey.currentState!.validate();

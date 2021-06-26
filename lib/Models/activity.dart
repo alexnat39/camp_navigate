@@ -1,4 +1,5 @@
 class Activity {
+
   late String title;
   late String points;
 
@@ -9,5 +10,18 @@ class Activity {
     data['title'] = title;
     data['points'] =points;
     return data;
+
+  String title;
+  int points;
+
+
+  Activity(this.title, this.points);
+
+  Map<String, dynamic> toMap() {
+  var data = Map<String, dynamic>();
+  data['title'] = title;
+  data['points'] =points;
+  return data;
+
   }
 }

@@ -17,7 +17,7 @@ class Admin extends StatefulWidget {
 class _AdminState extends State<Admin> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: AppBar(title: Text('tes'),), body: GridView.count(
+    return Scaffold(appBar: AppBar(title: Text('Control Center'),), body: GridView.count(
 
         primary: false,
         padding: const EdgeInsets.all(20),
@@ -39,14 +39,15 @@ class _AdminState extends State<Admin> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Image.asset(
-                    'assets/giorgio-trovato-_XTY6lD8jgM-unsplash.jpg',
+                    'assets/anna-pelzer-IGfIGP5ONV0-unsplash.jpg',
                     fit: BoxFit.fill,
-                    height: CustomSizes(context).getHeight(context)! * .28,
+                    //height: CustomSizes(context).getHeight(context)! * .28,
+                    scale: 0.4,
                   ),
                   Padding(
                       padding: EdgeInsets.all(10),
                       child: Text('Nutrition',
-                          style: TextStyle(color: CustomColors.GREY),
+                          style: TextStyle(color: CustomColors.GREY, fontSize: 15),
                           textAlign: TextAlign.center)),
                 ],
               ),
@@ -72,11 +73,12 @@ class _AdminState extends State<Admin> {
                   Image.asset(
                     'assets/unsplash-c59hEeerAaI-unsplash.jpg',
                     fit: BoxFit.fill,
-                    height: CustomSizes(context).getHeight(context)! * .28,
+                    //height: CustomSizes(context).getHeight(context)! * .28,
+                    scale: 0.4,
                   ),
                   Padding(padding: EdgeInsets.all(10),
                       child: Text(
-                          'Exercise', style: TextStyle(color: CustomColors.GREY),
+                          'Exercise', style: TextStyle(color: CustomColors.GREY, fontSize: 15),
                           textAlign: TextAlign.center)),
                 ],
               ),
@@ -101,11 +103,12 @@ class _AdminState extends State<Admin> {
                   Image.asset(
                     'assets/total-shape-Ianw4RdVuoo-unsplash.jpg',
                     fit: BoxFit.fill,
-                    height: CustomSizes(context).getHeight(context)! * .28,
+                    //height: CustomSizes(context).getHeight(context)! * .28,
+                    scale: 0.5,
                   ),
                   Padding(padding: EdgeInsets.all(10),
                       child: Text(
-                          'Mental Health', style: TextStyle(color: CustomColors.GREY),
+                          'Mental Health', style: TextStyle(color: CustomColors.GREY, fontSize: 15),
                           textAlign: TextAlign.center)),
                 ],
               ),
@@ -130,11 +133,12 @@ class _AdminState extends State<Admin> {
                   Image.asset(
                     'assets/giorgio-trovato-_XTY6lD8jgM-unsplash.jpg',
                     fit: BoxFit.fill,
-                    height: CustomSizes(context).getHeight(context)! * .28,
+                    //height: CustomSizes(context).getHeight(context)! * .28,
+                    scale: 0.4,
                   ),
                   Padding(padding: EdgeInsets.all(10),
                       child: Text(
-                          'Rewards', style: TextStyle(color: CustomColors.GREY),
+                          'Rewards', style: TextStyle(color: CustomColors.GREY, fontSize: 15),
                           textAlign: TextAlign.center)),
                 ],
               ),

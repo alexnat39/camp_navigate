@@ -51,7 +51,7 @@ class _MainPageState extends State<MainPage> {
             backgroundColor: Colors.red,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.business),
+            icon: Icon(Icons.monetization_on),
             label: 'Rewards',
             backgroundColor: Colors.green,
           ),
