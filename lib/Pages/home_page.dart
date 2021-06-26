@@ -11,9 +11,9 @@ class _HomePageState extends State<HomePage> {
 
   List<String> pointTypes = [
     'Total Points: ',
-    'Physical Activity: ',
-    'Nutrition: ',
-    'Mental Health: ',
+    'Physical Activity Points: ',
+    'Nutrition Points: ',
+    'Mental Health Points: ',
   ];
 
   @override
@@ -43,7 +43,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
 
-        SizedBox(height: 30),
+        SizedBox(height: 40),
 
         CustomPhysicalButton(
             func: () => Navigator.pushNamed(context, "/physical")),
