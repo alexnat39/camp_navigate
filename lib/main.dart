@@ -88,7 +88,7 @@ class _MyAppState extends State<MyApp> {
             fontFamily: 'GothamPro',
           ),
 
-          initialRoute: "/welcome",/*(FirebaseAuth.instance.currentUser != null)
+          initialRoute: "/admin",/*(FirebaseAuth.instance.currentUser != null)
               ? (fetchUserData() ? '/admin':'/admin')
               : '/welcome', */
 
