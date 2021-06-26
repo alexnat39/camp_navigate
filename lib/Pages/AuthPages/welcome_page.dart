@@ -38,7 +38,7 @@ class _WelcomeScreenPageState extends State<WelcomeScreenPage> {
                     child: Container(
                       width: height * 0.224,
                       child: Text(
-                        "Camp Navigate",
+                        "Healthy Habits",
                         style: TextStyle(fontSize: 24),
                         textAlign: TextAlign.center,
                       )
