@@ -93,11 +93,6 @@ class _MyAppState extends State<MyApp> {
               ? (fetchUserData() ? '/admin':'/admin')
               : '/welcome', */
 
-
-          initialRoute: (FirebaseAuth.instance.currentUser != null)
-              ? (widget.isUserAdmin ? '/admin' : '/home')
-              : '/welcome',
-
           routes: {
             "/home": (context) => MainPage(),
             '/admin': (context) => Admin(),

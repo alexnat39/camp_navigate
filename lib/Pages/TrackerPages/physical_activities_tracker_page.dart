@@ -35,7 +35,7 @@ class _PhysicalActivitiesTrackerPageState
       "Walk",
       "Workout",
       "Play football",
-      "Play basketball"
+      "Play basketball",
     ];
     super.initState();
   }
