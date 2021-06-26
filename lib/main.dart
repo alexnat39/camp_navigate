@@ -89,9 +89,9 @@ class _MyAppState extends State<MyApp> {
           ),
 
 
-          initialRoute: "/home",/*(FirebaseAuth.instance.currentUser != null)
-              ? (fetchUserData() ? '/admin':'/admin')
-              : '/welcome', */
+          initialRoute: (FirebaseAuth.instance.currentUser != null)
+              ? (fetchUserData() ? '/admin':'/home')
+              : '/welcome',
 
           routes: {
             "/home": (context) => MainPage(),
