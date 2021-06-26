@@ -1,4 +1,7 @@
 import 'package:camp_navigate/Pages/AuthPages/welcome_page.dart';
+import 'package:camp_navigate/Pages/mental_health_tracker.dart';
+import 'package:camp_navigate/Pages/nutrition_tracker.dart';
+import 'package:camp_navigate/Pages/physical_activities_tracker.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -76,6 +79,9 @@ class _MyAppState extends State<MyApp> {
         routes: {
           "/home": (context) => HomePage(),
           "/welcome": (context) => WelcomeScreenPage(),
+          "/physical": (context) => PhysicalActivitiesTracker(),
+          "/nutrition": (context) => NutritionTracker(),
+          "/mental": (context) => MentalHealthTracker(),
         },
       ),
     );
