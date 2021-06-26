@@ -8,13 +8,43 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
+  List<String> pointTypes = [
+    'Total Points: ',
+    'Physical Activity: ',
+    'Nutrition: ',
+    'Mental Health: ',
+  ];
+
   @override
   Widget build(BuildContext context) {
+
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
-        SizedBox(height: 100),
+
+        Container(
+          height: 200,
+          child: ListView.builder(
+            itemCount: 4,
+            itemBuilder: (context, index) {
+              return Container(
+                height: 50,
+                child: Card(
+                  child: ListTile(
+                    onTap: () {},
+                    title: Text(pointTypes[index]),
+                    trailing: Text('5'),
+                  ),
+                ),
+              );
+            },
+          ),
+        ),
+
+        SizedBox(height: 30),
+
         CustomPhysicalButton(
             func: () => Navigator.pushNamed(context, "/physical")),
         SizedBox(height: 50),
