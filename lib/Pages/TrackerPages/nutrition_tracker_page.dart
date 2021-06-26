@@ -33,6 +33,7 @@ class _NutritionTrackerPageState extends State<NutritionTrackerPage> {
       "Eat 5 servings of veggies (3 cups)",
       "No soda/sugary beverages",
       "Eat breakfast",
+      "Kept a food log",
     ];
     super.initState();
   }
@@ -44,7 +45,7 @@ class _NutritionTrackerPageState extends State<NutritionTrackerPage> {
         body: ListView(
           children: [
             CustomContainerAppBar(
-              title: "Camp Navigate",
+              title: "Nutrition Tracker",
               isInitialPage: false,
             ),
 
@@ -103,7 +104,7 @@ class _NutritionTrackerPageState extends State<NutritionTrackerPage> {
                           ),
                         );
                       }),
-                  (_showSubmitButton) ? CustomUniversalButton(text: "Submit", borderColor: CustomColors.PURPLE, mainColor: CustomColors.PURPLE, textColor: CustomColors.WHITE, onPressedFunction: () async {
+                  (_showSubmitButton) ? CustomUniversalButton(text: "Submit", borderColor: CustomColors.NUTRITION, mainColor: CustomColors.NUTRITION, textColor: CustomColors.WHITE, onPressedFunction: () async {
                     //todo send a request to firestore
                     showLoadingDialog(context);
                     int result = await nutritionActivityService.sendNutritionActivitiesList(FirebaseAuth.instance.currentUser!.uid, chosenOptions!);
@@ -121,11 +122,33 @@ class _NutritionTrackerPageState extends State<NutritionTrackerPage> {
                       showAlert(context, "An error occurred");
                     }
                   },) : Container()
+
                 ],
               ),
             ),
           ],
-        )
+        ),
+
+    floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+    floatingActionButton: Container(
+      height: 100,
+      child: FloatingActionButton.extended(
+        //navigate to scan a receipt page
+        onPressed: () {},
+        label: Text(
+          'Scan a receipt',
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        icon: Icon(Icons.add),
+        backgroundColor: CustomColors.NUTRITION,
+        elevation: 2,
+      ),
+    ),
+
+
     );
   }
 }

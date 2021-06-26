@@ -45,7 +45,7 @@ class _MentalHealthTrackerPageState extends State<MentalHealthTrackerPage> {
         body: ListView(
           children: [
             CustomContainerAppBar(
-              title: "Camp Navigate",
+              title: 'Mental Health Tracker',
               isInitialPage: false,
             ),
 
@@ -104,7 +104,7 @@ class _MentalHealthTrackerPageState extends State<MentalHealthTrackerPage> {
                           ),
                         );
                       }),
-                  (_showSubmitButton) ? CustomUniversalButton(text: "Submit", borderColor: CustomColors.PURPLE, mainColor: CustomColors.PURPLE, textColor: CustomColors.WHITE, onPressedFunction: () async {
+                  (_showSubmitButton) ? CustomUniversalButton(text: "Submit", borderColor: CustomColors.MENTAL, mainColor: CustomColors.MENTAL, textColor: CustomColors.WHITE, onPressedFunction: () async {
                     //todo send a request to firestore
                     showLoadingDialog(context);
                     int result = await mentalHealthActivityService.sendMentalHealthActivitiesList(FirebaseAuth.instance.currentUser!.uid, chosenOptions!);
