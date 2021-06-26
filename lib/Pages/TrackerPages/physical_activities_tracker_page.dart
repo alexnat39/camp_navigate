@@ -47,7 +47,7 @@ class _PhysicalActivitiesTrackerPageState
         body: ListView(
           children: [
             CustomContainerAppBar(
-              title: "Camp Navigate",
+              title: "Physical Activity Tracker",
               isInitialPage: false,
             ),
             Padding(
@@ -105,7 +105,7 @@ class _PhysicalActivitiesTrackerPageState
                           ),
                         );
                       }),
-                  (_showSubmitButton) ? CustomUniversalButton(text: "Submit", borderColor: CustomColors.PURPLE, mainColor: CustomColors.PURPLE, textColor: CustomColors.WHITE, onPressedFunction: () async {
+                  (_showSubmitButton) ? CustomUniversalButton(text: "Submit", borderColor: CustomColors.PHYSICAL, mainColor: CustomColors.PHYSICAL, textColor: CustomColors.WHITE, onPressedFunction: () async {
                     //todo send a request to firestore
                     showLoadingDialog(context);
                     int result = await physicalActivityService.sendPhysicalActivitiesList(FirebaseAuth.instance.currentUser!.uid, chosenOptions!);

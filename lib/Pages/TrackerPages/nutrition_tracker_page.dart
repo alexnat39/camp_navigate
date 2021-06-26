@@ -45,7 +45,7 @@ class _NutritionTrackerPageState extends State<NutritionTrackerPage> {
         body: ListView(
           children: [
             CustomContainerAppBar(
-              title: "Camp Navigate",
+              title: "Nutrition Tracker",
               isInitialPage: false,
             ),
 
@@ -104,7 +104,7 @@ class _NutritionTrackerPageState extends State<NutritionTrackerPage> {
                           ),
                         );
                       }),
-                  (_showSubmitButton) ? CustomUniversalButton(text: "Submit", borderColor: CustomColors.PURPLE, mainColor: CustomColors.PURPLE, textColor: CustomColors.WHITE, onPressedFunction: () async {
+                  (_showSubmitButton) ? CustomUniversalButton(text: "Submit", borderColor: CustomColors.NUTRITION, mainColor: CustomColors.NUTRITION, textColor: CustomColors.WHITE, onPressedFunction: () async {
                     //todo send a request to firestore
                     showLoadingDialog(context);
                     int result = await nutritionActivityService.sendNutritionActivitiesList(FirebaseAuth.instance.currentUser!.uid, chosenOptions!);

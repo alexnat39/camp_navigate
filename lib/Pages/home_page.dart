@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:camp_navigate/CustomWidgets/custom_widgets_homepage.dart';
+import 'package:camp_navigate/Services/user_service.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -8,6 +9,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
+  var _userService = UserService();
+
 
   List<String> pointTypes = [
     'Total Points: ',
@@ -33,7 +37,8 @@ class _HomePageState extends State<HomePage> {
                 height: 50,
                 child: Card(
                   child: ListTile(
-                    onTap: () {},
+                    onTap: ()  {
+                    },
                     title: Text(pointTypes[index]),
                     trailing: Text('5'),
                   ),
