@@ -15,7 +15,6 @@ import 'package:rflutter_alert/rflutter_alert.dart';
 import 'Models/UserVM.dart';
 import 'Pages/AuthPages/reset_password_page.dart';
 import 'Pages/AuthPages/sign_up_page.dart';
-import 'Pages/home_page.dart';
 import 'Pages/TrackerPages/mental_health_tracker_page.dart';
 import 'Pages/TrackerPages/nutrition_tracker_page.dart';
 import 'Pages/TrackerPages/physical_activities_tracker_page.dart';
@@ -32,24 +31,25 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   setupLocator();
-  runApp(MyApp());
+  bool _isAdmin = false;
+  if (FirebaseAuth.instance.currentUser != null) {
+    _isAdmin = await fetchUserData();
+  }
+  runApp(MyApp(_isAdmin));
 }
 
 class MyApp extends StatefulWidget {
-  MyApp();
+  bool isUserAdmin;
+
+  MyApp(this.isUserAdmin);
 
   @override
   _MyAppState createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
-   bool admin = false;
   @override
   void initState() {
-    if (FirebaseAuth.instance.currentUser != null) {
-    admin =  fetchUserData();
-    print(admin);
-    }
     super.initState();
   }
 
@@ -83,11 +83,9 @@ class _MyAppState extends State<MyApp> {
           theme: ThemeData(
             fontFamily: 'GothamPro',
           ),
-
           initialRoute: (FirebaseAuth.instance.currentUser != null)
-              ? (fetchUserData() ? '/admin':'/admin')
+              ? (widget.isUserAdmin ? '/admin' : '/home')
               : '/welcome',
-
           routes: {
             "/home": (context) => MainPage(),
             '/admin': (context) => Admin(),
@@ -103,40 +101,6 @@ class _MyAppState extends State<MyApp> {
       ),
     );
   }
-
-  bool fetchUserData() {
-    bool admin = false;
-    bool errorPresent = false;
-    FirebaseFirestore.instance
-        .collection('users')
-        .doc(FirebaseAuth.instance.currentUser!.uid)
-        .get()
-        .then((value) => {admin = value['admin'],print(admin)}).catchError((e) =>  { errorPresent = true,Alert(
-        context: context,
-        type: AlertType.error,
-        title: "Something went wrong.",
-        desc: 'Please try again.',
-        buttons: [
-          DialogButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            color: Colors.red,
-            child: Text(
-              "Ok",
-              style: TextStyle(color: Colors.white, fontSize: 20),
-            ),
-          ),
-        ]).show()
-
-  });
-    if (errorPresent) {
-      return false;
-    }
-      // Send report
-    
-    return admin;
-  }
 }
 
 /**
@@ -148,4 +112,43 @@ class NoGlowBehavior extends ScrollBehavior {
       BuildContext context, Widget child, AxisDirection axisDirection) {
     return child;
   }
+}
+
+Future<bool> fetchUserData() async {
+  bool _admin = false;
+  bool errorPresent = false;
+  await FirebaseFirestore.instance
+      .collection('users')
+      .doc(FirebaseAuth.instance.currentUser!.uid)
+      .get()
+      .then((value) => {
+            print(value['email']),
+            _admin = value['admin'],
+            print("admin: $_admin")
+          })
+      .catchError((e) => {
+            errorPresent = true,
+            // Alert(
+            //     context: context,
+            //     type: AlertType.error,
+            //     title: "Something went wrong.",
+            //     desc: 'Please try again.',
+            //     buttons: [
+            //       DialogButton(
+            //         onPressed: () {
+            //           Navigator.pop(context);
+            //         },
+            //         color: Colors.red,
+            //         child: Text(
+            //           "Ok",
+            //           style: TextStyle(color: Colors.white, fontSize: 20),
+            //         ),
+            //       ),
+            //     ]).show()
+          });
+  if (errorPresent) {
+    return false;
+  }
+  // Send report
+  return _admin;
 }
