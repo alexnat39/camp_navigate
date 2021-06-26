@@ -1,6 +1,7 @@
 import 'package:camp_navigate/Pages/AuthPages/login_page.dart';
 import 'package:camp_navigate/Pages/AuthPages/welcome_page.dart';
 import 'package:camp_navigate/Services/physical_activity_service.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
@@ -8,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get_it/get_it.dart';
 import 'package:provider/provider.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 import 'Models/UserVM.dart';
 import 'Pages/AuthPages/reset_password_page.dart';
 import 'Pages/AuthPages/sign_up_page.dart';
@@ -22,7 +24,6 @@ void setupLocator() {
   GetIt.instance.registerLazySingleton(() => AuthenticationService());
   GetIt.instance.registerLazySingleton(() => UserService());
   GetIt.instance.registerLazySingleton(() => PhysicalActivityService());
-
 }
 
 Future<void> main() async {
@@ -42,6 +43,9 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   void initState() {
+    if (FirebaseAuth.instance.currentUser != null) {
+      fetchUserData();
+    }
     super.initState();
   }
 
@@ -75,7 +79,9 @@ class _MyAppState extends State<MyApp> {
           theme: ThemeData(
             fontFamily: 'GothamPro',
           ),
-          initialRoute: (FirebaseAuth.instance.currentUser != null) ? '/home' : '/welcome',
+          initialRoute: (FirebaseAuth.instance.currentUser != null)
+              ? '/home'
+              : '/welcome',
           routes: {
             "/home": (context) => HomePage(),
             "/welcome": (context) => WelcomeScreenPage(),
@@ -89,6 +95,40 @@ class _MyAppState extends State<MyApp> {
         ),
       ),
     );
+  }
+
+  bool fetchUserData() {
+    bool admin = false;
+    bool errorPresent = false;
+    FirebaseFirestore.instance
+        .collection('Users')
+        .doc(FirebaseAuth.instance.currentUser!.uid)
+        .get()
+        .then((value) => {admin = value['admin']}).catchError((e) =>  { errorPresent = true,Alert(
+        context: context,
+        type: AlertType.error,
+        title: "Something went wrong.",
+        desc: 'Please try to scan again.',
+        buttons: [
+          DialogButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            color: Colors.red,
+            child: Text(
+              "Ok",
+              style: TextStyle(color: Colors.white, fontSize: 20),
+            ),
+          ),
+        ]).show()
+
+  });
+    if (errorPresent) {
+      return false;
+    }
+      // Send report
+    
+    return admin;
   }
 }
 

@@ -1,4 +1,4 @@
-import 'package:auto_size_text/auto_size_text.dart';
+
 import 'package:camp_navigate/Helpers/custom_colors.dart';
 import 'package:camp_navigate/Helpers/custom_sizes.dart';
 import 'package:flutter/cupertino.dart';

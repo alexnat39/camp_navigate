@@ -1,4 +1,4 @@
-import 'package:auto_size_text/auto_size_text.dart';
+
 import 'package:camp_navigate/CustomWidgets/UniversalWidgets/AppBarWidgets/container_app_bar.dart';
 import 'package:camp_navigate/CustomWidgets/UniversalWidgets/custom_universal_button.dart';
 import 'package:camp_navigate/CustomWidgets/UniversalWidgets/show_alert.dart';
@@ -61,7 +61,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Flexible(
-                            child: AutoSizeText(
+                            child: Text(
                                 "To reset the password, enter your E-mail",
                                 style:
                                     TextStyle(fontFamily: "GothamProNormal")),

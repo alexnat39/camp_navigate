@@ -1,4 +1,4 @@
-import 'package:auto_size_text/auto_size_text.dart';
+
 import 'package:camp_navigate/CustomWidgets/TrackerPageWidgets/chosen_option_widget.dart';
 import 'package:camp_navigate/CustomWidgets/UniversalWidgets/AppBarWidgets/container_app_bar.dart';
 import 'package:camp_navigate/CustomWidgets/UniversalWidgets/custom_universal_button.dart';
@@ -57,7 +57,7 @@ class _PhysicalActivitiesTrackerPageState
                   DropdownButtonHideUnderline(
                     child: DropdownButton(
                         isExpanded: true,
-                        hint: AutoSizeText(
+                        hint: Text(
                           "What did you do today?",
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
