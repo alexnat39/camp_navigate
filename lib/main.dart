@@ -1,4 +1,5 @@
 import 'package:camp_navigate/Admin/admin.dart';
+import 'package:camp_navigate/Helpers/custom_colors.dart';
 import 'package:camp_navigate/Pages/AuthPages/login_page.dart';
 import 'package:camp_navigate/Pages/AuthPages/welcome_page.dart';
 import 'package:camp_navigate/Pages/main_page.dart';
@@ -31,17 +32,11 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   setupLocator();
-  bool _isAdmin = false;
-  if (FirebaseAuth.instance.currentUser != null) {
-    _isAdmin = await fetchUserData();
-  }
-  runApp(MyApp(_isAdmin));
+  runApp(MyApp());
 }
 
 class MyApp extends StatefulWidget {
-  bool isUserAdmin;
-
-  MyApp(this.isUserAdmin);
+  MyApp();
 
   @override
   _MyAppState createState() => _MyAppState();
@@ -72,30 +67,39 @@ class _MyAppState extends State<MyApp> {
             create: (context) => UserVM(),
           )
         ],
-        child: MaterialApp(
-          debugShowCheckedModeBanner: false,
-          builder: (context, child) {
-            return ScrollConfiguration(
-              behavior: NoGlowBehavior(),
-              child: child!,
+        child: FutureBuilder(
+          future: fetchUserData(context),
+          builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
+            return (snapshot.data == null)
+                ? Container(
+              color: CustomColors.WHITE,
+            )
+                : MaterialApp(
+              debugShowCheckedModeBanner: false,
+              builder: (context, child) {
+                return ScrollConfiguration(
+                  behavior: NoGlowBehavior(),
+                  child: child!,
+                );
+              },
+              theme: ThemeData(
+                fontFamily: 'GothamPro',
+              ),
+              initialRoute: (FirebaseAuth.instance.currentUser != null)
+                  ? (snapshot.data ? '/admin' : '/home')
+                  : '/welcome',
+              routes: {
+                "/home": (context) => MainPage(),
+                '/admin': (context) => Admin(),
+                "/welcome": (context) => WelcomeScreenPage(),
+                "/login": (context) => LoginPage(),
+                "/signup": (context) => SignUpPage(),
+                "/reset_password": (context) => ResetPasswordPage(),
+                "/physical": (context) => PhysicalActivitiesTrackerPage(),
+                "/nutrition": (context) => NutritionTrackerPage(),
+                "/mental": (context) => MentalHealthTrackerPage(),
+              },
             );
-          },
-          theme: ThemeData(
-            fontFamily: 'GothamPro',
-          ),
-          initialRoute: (FirebaseAuth.instance.currentUser != null)
-              ? (widget.isUserAdmin ? '/admin' : '/home')
-              : '/welcome',
-          routes: {
-            "/home": (context) => MainPage(),
-            '/admin': (context) => Admin(),
-            "/welcome": (context) => WelcomeScreenPage(),
-            "/login": (context) => LoginPage(),
-            "/signup": (context) => SignUpPage(),
-            "/reset_password": (context) => ResetPasswordPage(),
-            "/physical": (context) => PhysicalActivitiesTrackerPage(),
-            "/nutrition": (context) => NutritionTrackerPage(),
-            "/mental": (context) => MentalHealthTrackerPage(),
           },
         ),
       ),
@@ -114,7 +118,7 @@ class NoGlowBehavior extends ScrollBehavior {
   }
 }
 
-Future<bool> fetchUserData() async {
+Future<bool> fetchUserData(context) async {
   bool _admin = false;
   bool errorPresent = false;
   await FirebaseFirestore.instance
@@ -122,30 +126,30 @@ Future<bool> fetchUserData() async {
       .doc(FirebaseAuth.instance.currentUser!.uid)
       .get()
       .then((value) => {
-            print(value['email']),
-            _admin = value['admin'],
-            print("admin: $_admin")
-          })
+    print(value['email']),
+    _admin = value['admin'],
+    print("admin: $_admin")
+  })
       .catchError((e) => {
-            errorPresent = true,
-            // Alert(
-            //     context: context,
-            //     type: AlertType.error,
-            //     title: "Something went wrong.",
-            //     desc: 'Please try again.',
-            //     buttons: [
-            //       DialogButton(
-            //         onPressed: () {
-            //           Navigator.pop(context);
-            //         },
-            //         color: Colors.red,
-            //         child: Text(
-            //           "Ok",
-            //           style: TextStyle(color: Colors.white, fontSize: 20),
-            //         ),
-            //       ),
-            //     ]).show()
-          });
+    errorPresent = true,
+    Alert(
+        context: context,
+        type: AlertType.error,
+        title: "Something went wrong.",
+        desc: 'Please try again.',
+        buttons: [
+          DialogButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            color: Colors.red,
+            child: Text(
+              "Ok",
+              style: TextStyle(color: Colors.white, fontSize: 20),
+            ),
+          ),
+        ]).show()
+  });
   if (errorPresent) {
     return false;
   }

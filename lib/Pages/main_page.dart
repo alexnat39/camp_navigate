@@ -2,6 +2,7 @@ import 'package:camp_navigate/CustomWidgets/UniversalWidgets/AppBarWidgets/conta
 import 'package:camp_navigate/Helpers/custom_colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'RewardsPage/rewards_page.dart';
 import 'home_page.dart';
 
 class MainPage extends StatefulWidget {
@@ -14,9 +15,7 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   static List<Widget> _widgetOptions = <Widget>[
     HomePage(),
-    Text(
-      'Index 1: Business',
-    ),
+    RewardsPage(),
     Text(
       'Index 2: School',
     ),
@@ -34,6 +33,8 @@ class _MainPageState extends State<MainPage> {
     return Scaffold(
       backgroundColor: CustomColors.WHITE,
       body: ListView(
+        padding: EdgeInsets.zero,
+        physics: NeverScrollableScrollPhysics(),
         children: [
           CustomContainerAppBar(
             title: "Camp Navigate",

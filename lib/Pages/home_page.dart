@@ -21,16 +21,17 @@ class _HomePageState extends State<HomePage> {
   ];
 
   @override
+
   Widget build(BuildContext context) {
 
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
+    return ListView(
+      shrinkWrap: true,
       children: <Widget>[
-
         Container(
           height: 200,
           child: ListView.builder(
+            shrinkWrap: true,
+            physics: NeverScrollableScrollPhysics(),
             itemCount: 4,
             itemBuilder: (context, index) {
               return Container(

@@ -1,16 +1,13 @@
-import 'package:flutter/material.dart';
-
 class Activity {
-  String title;
-  int points;
-
+  late String title;
+  late String points;
 
   Activity(this.title, this.points);
 
   Map<String, dynamic> toMap() {
-  var data = Map<String, dynamic>();
-  data['title'] = title;
-  data['points'] =points;
-  return data;
+    var data = Map<String, dynamic>();
+    data['title'] = title;
+    data['points'] =points;
+    return data;
   }
 }
