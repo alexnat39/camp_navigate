@@ -1,3 +1,4 @@
+import 'package:camp_navigate/Pages/AuthPages/welcome_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -20,10 +21,7 @@ void setupLocator() {
   // GetIt.instance.registerLazySingleton(() => PushNotificationsService());
   // GetIt.instance.registerLazySingleton(() => PartnerService());
   // GetIt.instance.registerLazySingleton(() => FirebaseService());
-
-
 }
-
 
 
 Future<void> main() async {
@@ -74,9 +72,10 @@ class _MyAppState extends State<MyApp> {
         theme: ThemeData(
           fontFamily: 'GothamPro',
         ),
-        initialRoute: '/home',
+        initialRoute: '/welcome',
         routes: {
           "/home": (context) => HomePage(),
+          "/welcome": (context) => WelcomeScreenPage(),
         },
       ),
     );
