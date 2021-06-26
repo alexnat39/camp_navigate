@@ -23,8 +23,6 @@ class UserService {
         'last_name': lastName,
         'email': email,
         'id': id,
-        'favorite_horses': [],
-        'is_email_enabled': true,
       });
     } catch (e) {
       print(e);
@@ -67,8 +65,7 @@ class UserService {
   Future<int> updateUserInFirestore(
       {String? email,
       String? firstName,
-      String? lastName,
-      bool? isEmailEnabled}) async {
+      String? lastName}) async {
     try {
       SharedPreferences _prefs = await SharedPreferences.getInstance();
       _firebase
@@ -78,7 +75,6 @@ class UserService {
         'first_name': firstName,
         'last_name': lastName,
         'email': email,
-        'is_email_enabled': isEmailEnabled,
       });
       _prefs.setString("email", email!);
       return 0;

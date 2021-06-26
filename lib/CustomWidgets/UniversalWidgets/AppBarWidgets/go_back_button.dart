@@ -33,7 +33,7 @@ class _CustomGoBackButtonState extends State<CustomGoBackButton> {
         child: Material(
           color: CustomColors.WHITE, // Button color
           child: InkWell(
-            splashColor: CustomColors.GREY, // Splash color
+            splashColor: CustomColors.PURPLE, // Splash color
             onTap: () {
               Navigator.pop(context);
             },

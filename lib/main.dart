@@ -5,6 +5,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get_it/get_it.dart';
+import 'package:provider/provider.dart';
+import 'Models/UserVM.dart';
 import 'Pages/AuthPages/reset_password_page.dart';
 import 'Pages/AuthPages/sign_up_page.dart';
 import 'Pages/home_page.dart';
@@ -32,13 +34,10 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-
-
   @override
   void initState() {
     super.initState();
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -53,28 +52,32 @@ class _MyAppState extends State<MyApp> {
         else
           return true;
       },
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        builder: (context, child) {
-          return ScrollConfiguration(
-            behavior: NoGlowBehavior(),
-            child: child!,
-          );
-        },
-
-
-        theme: ThemeData(
-          fontFamily: 'GothamPro',
+      child: MultiProvider(
+        providers: [
+          ChangeNotifierProvider<UserVM>(
+            create: (context) => UserVM(),
+          )
+        ],
+        child: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          builder: (context, child) {
+            return ScrollConfiguration(
+              behavior: NoGlowBehavior(),
+              child: child!,
+            );
+          },
+          theme: ThemeData(
+            fontFamily: 'GothamPro',
+          ),
+          initialRoute: '/welcome',
+          routes: {
+            "/home": (context) => HomePage(),
+            "/welcome": (context) => WelcomeScreenPage(),
+            "/login": (context) => LoginPage(),
+            "/signup": (context) => SignUpPage(),
+            "/reset_password": (context) => ResetPasswordPage(),
+          },
         ),
-        initialRoute: '/welcome',
-        routes: {
-          "/home": (context) => HomePage(),
-          "/welcome": (context) => WelcomeScreenPage(),
-          "/login": (context) => LoginPage(),
-          "/signup": (context) => SignUpPage(),
-          "/reset_password": (context) => ResetPasswordPage(),
-
-        },
       ),
     );
   }

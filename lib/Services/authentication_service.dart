@@ -37,14 +37,17 @@ class AuthenticationService {
       return 0;
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
+        print("Exception is: $e");
         return 1;
       } else if (e.code == 'email-already-in-use') {
+        print("Exception is: $e");
         return 2;
       } else {
+        print("Exception is: $e");
         return 3;
       }
     } catch (e) {
-      print(e);
+      print("Exception is: $e");
       return 3;
     }
   }

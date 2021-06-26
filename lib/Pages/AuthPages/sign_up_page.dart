@@ -362,6 +362,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                       Navigator.pop(context);
                                       Navigator.pushNamed(context, "/home");
                                     } catch (e) {
+                                      print(e);
                                       //popping loading dialog
                                       Navigator.pop(context);
                                       showAlert(context, "An error occurred");
@@ -388,11 +389,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                     Navigator.pop(context);
                                     return showAlert(context, "An error occurred");
                                   }
-
-
                               }
-
-
                             }
                           },
                         ),
