@@ -114,7 +114,7 @@ void updateTotalPoints (int points,BuildContext context) {
   var previousData = Map<String,dynamic>();
   fetch_user_data.fetch_user_dataM(context).then((value) => previousData = value);
   data['totalPoints'] = previousData['totalPoints']+points;
-  //FirebaseFirestore.instance.collection('users').doc(FirebaseAuth.instance.currentUser!.uid).update(new Ma)
+  FirebaseFirestore.instance.collection('users').doc(FirebaseAuth.instance.currentUser!.uid).update(data);
 }
 
 
