@@ -31,14 +31,18 @@ class _WelcomeScreenPageState extends State<WelcomeScreenPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Padding(
-                  padding: EdgeInsets.only(
-                      bottom: height * 0.05),
-                  child: Container(
-                    width: height * 0.224,
-                    child: Text(
-                      "Camp Navigate"
-                    )
+                Center(
+                  child: Padding(
+                    padding: EdgeInsets.only(
+                        bottom: height * 0.05),
+                    child: Container(
+                      width: height * 0.224,
+                      child: Text(
+                        "Camp Navigate",
+                        style: TextStyle(fontSize: 24),
+                        textAlign: TextAlign.center,
+                      )
+                    ),
                   ),
                 ),
                 Padding(

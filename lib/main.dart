@@ -1,26 +1,21 @@
+import 'package:camp_navigate/Pages/AuthPages/login_page.dart';
 import 'package:camp_navigate/Pages/AuthPages/welcome_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get_it/get_it.dart';
 import 'package:provider/provider.dart';
+import 'Models/UserVM.dart';
+import 'Pages/AuthPages/reset_password_page.dart';
+import 'Pages/AuthPages/sign_up_page.dart';
 import 'Pages/home_page.dart';
+import 'Services/authentication_service.dart';
+import 'Services/user_service.dart';
 
 void setupLocator() {
-  // GetIt.instance.registerLazySingleton(() => SlidersService());
-  // GetIt.instance.registerLazySingleton(() => UserService());
-  // GetIt.instance.registerLazySingleton(() => ServiceService());
-  // GetIt.instance.registerLazySingleton(() => ClinicService());
-  // GetIt.instance.registerLazySingleton(() => InsuranceService());
-  // GetIt.instance.registerLazySingleton(() => GalleryService());
-  // GetIt.instance.registerLazySingleton(() => ReviewService());
-  // GetIt.instance.registerLazySingleton(() => AppointmentService());
-  // GetIt.instance.registerLazySingleton(() => DocumentService());
-  // GetIt.instance.registerLazySingleton(() => FileService());
-  // GetIt.instance.registerLazySingleton(() => CertificatesService());
-  // GetIt.instance.registerLazySingleton(() => PushNotificationsService());
-  // GetIt.instance.registerLazySingleton(() => PartnerService());
-  // GetIt.instance.registerLazySingleton(() => FirebaseService());
+  GetIt.instance.registerLazySingleton(() => AuthenticationService());
+  GetIt.instance.registerLazySingleton(() => UserService());
 }
 
 
@@ -39,13 +34,10 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-
-
   @override
   void initState() {
     super.initState();
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -60,23 +52,32 @@ class _MyAppState extends State<MyApp> {
         else
           return true;
       },
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        builder: (context, child) {
-          return ScrollConfiguration(
-            behavior: NoGlowBehavior(),
-            child: child!,
-          );
-        },
-
-        theme: ThemeData(
-          fontFamily: 'GothamPro',
+      child: MultiProvider(
+        providers: [
+          ChangeNotifierProvider<UserVM>(
+            create: (context) => UserVM(),
+          )
+        ],
+        child: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          builder: (context, child) {
+            return ScrollConfiguration(
+              behavior: NoGlowBehavior(),
+              child: child!,
+            );
+          },
+          theme: ThemeData(
+            fontFamily: 'GothamPro',
+          ),
+          initialRoute: '/welcome',
+          routes: {
+            "/home": (context) => HomePage(),
+            "/welcome": (context) => WelcomeScreenPage(),
+            "/login": (context) => LoginPage(),
+            "/signup": (context) => SignUpPage(),
+            "/reset_password": (context) => ResetPasswordPage(),
+          },
         ),
-        initialRoute: '/welcome',
-        routes: {
-          "/home": (context) => HomePage(),
-          "/welcome": (context) => WelcomeScreenPage(),
-        },
       ),
     );
   }
