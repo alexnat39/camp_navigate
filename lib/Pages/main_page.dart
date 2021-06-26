@@ -20,9 +20,6 @@ class _MainPageState extends State<MainPage> {
     Text(
       'Index 2: School',
     ),
-    Text(
-      'Index 3: Settings',
-    ),
   ];
   int _selectedIndex = 0;
 
@@ -54,17 +51,12 @@ class _MainPageState extends State<MainPage> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.business),
-            label: 'Business',
+            label: 'Rewards',
             backgroundColor: Colors.green,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.school),
-            label: 'School',
-            backgroundColor: Colors.purple,
-          ),
-          BottomNavigationBarItem(
             icon: Icon(Icons.settings),
-            label: 'Settings',
+            label: 'More',
             backgroundColor: Colors.pink,
           ),
         ],

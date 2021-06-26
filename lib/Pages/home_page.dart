@@ -1,8 +1,5 @@
-import 'package:camp_navigate/CustomWidgets/UniversalWidgets/AppBarWidgets/container_app_bar.dart';
-import 'package:camp_navigate/Helpers/custom_colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:line_icons/line_icons.dart';
 import 'package:camp_navigate/CustomWidgets/custom_widgets_homepage.dart';
 
 class HomePage extends StatefulWidget {
