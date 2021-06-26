@@ -36,7 +36,7 @@ class _MainPageState extends State<MainPage> {
       body: ListView(
         children: [
           CustomContainerAppBar(
-            title: "Camp Navigate",
+            title: "My Healthy Habits",
             isInitialPage: true,
           ),
           _widgetOptions.elementAt(_selectedIndex),
@@ -61,7 +61,7 @@ class _MainPageState extends State<MainPage> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
+        selectedItemColor: CustomColors.BLUE,
         onTap: _onItemTapped,
       ),
     );
