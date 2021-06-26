@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:camp_navigate/Helpers/custom_colors.dart';
 import 'package:camp_navigate/Helpers/custom_sizes.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:expandable_text/expandable_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:paginate_firestore/bloc/pagination_listeners.dart';
@@ -55,14 +56,13 @@ class RewardsPage extends StatelessWidget {
                       Text(reward["name"], style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),),
                       Padding(
                         padding: const EdgeInsets.only(top: 10.0),
-                        child: Text(reward["description"], style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),),
+                        child: ExpandableText(reward["description"],
+                            expandText: 'Развернуть',
+                            collapseText: 'Спрятать',
+                            maxLines: 4,
+                            linkColor: CustomColors.LIGHTGREY,
+                            style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400)),
                       ),
-                      // ExpandableText(widget.commentaryModel!.text!,
-                      //     expandText: 'Развернуть',
-                      //     collapseText: 'Спрятать',
-                      //     maxLines: 4,
-                      //     linkColor: CustomColors.LIGHTGREY,
-                      //     style: TextStyle(fontSize: 14, color: CustomColors.WHITE)),
                     ]
                   )
                 ]

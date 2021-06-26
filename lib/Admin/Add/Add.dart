@@ -123,8 +123,7 @@ class _AddState extends State<Add> {
 
 void uploadData(BuildContext context,points, name, collection
    ) async {
-  final activity =
-  Activity(name, points);
+  final activity = Activity(name, points);
 
   FirebaseFirestore.instance
       .collection(collection)
