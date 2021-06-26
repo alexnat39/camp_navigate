@@ -72,7 +72,7 @@ class _LoginPageState extends State<LoginPage> {
                             borderSide: BorderSide(color: Colors.red[300]!),
                           ),
                           focusedBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: CustomColors.PURPLE),
+                            borderSide: BorderSide(color: CustomColors.BLUE),
                           ),
                           border: UnderlineInputBorder(
                               borderSide: BorderSide(color: CustomColors.GREY)),
@@ -101,7 +101,7 @@ class _LoginPageState extends State<LoginPage> {
                             borderSide: BorderSide(color: Colors.red[300]!),
                           ),
                           focusedBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: CustomColors.PURPLE),
+                            borderSide: BorderSide(color: CustomColors.BLUE),
                           ),
                           border: UnderlineInputBorder(
                               borderSide: BorderSide(color: CustomColors.GREY)),
@@ -140,8 +140,8 @@ class _LoginPageState extends State<LoginPage> {
                       child: CustomUniversalButton(
                         text: "Log In",
                         mainColor: CustomColors.WHITE,
-                        textColor: CustomColors.PURPLE,
-                        borderColor: CustomColors.PURPLE,
+                        textColor: CustomColors.BLUE,
+                        borderColor: CustomColors.BLUE,
                         onPressedFunction: () async {
                           if (_emailController.text != null &&
                               _passwordController.text != null) {

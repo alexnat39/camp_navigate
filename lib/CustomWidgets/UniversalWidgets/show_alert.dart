@@ -10,7 +10,7 @@ void showAlert(BuildContext context, String errorMessage, {String title : 'An er
             borderRadius: BorderRadius.all(Radius.circular(8.0))),
         title: Text(
           title,
-          style: TextStyle(color: CustomColors.PURPLE),
+          style: TextStyle(color: CustomColors.BLUE),
         ),
         content: Text(
           '$errorMessage',

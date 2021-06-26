@@ -92,7 +92,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                               borderSide: BorderSide(color: Colors.red[300]!),
                             ),
                             focusedBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(color: CustomColors.PURPLE),
+                              borderSide: BorderSide(color: CustomColors.BLUE),
                             ),
                             border: UnderlineInputBorder(
                                 borderSide: BorderSide(color: CustomColors.GREY)),
@@ -122,8 +122,8 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                       child: CustomUniversalButton(
                         text: "Reset",
                         mainColor: CustomColors.WHITE,
-                        textColor: CustomColors.PURPLE,
-                        borderColor: CustomColors.PURPLE,
+                        textColor: CustomColors.BLUE,
+                        borderColor: CustomColors.BLUE,
                         onPressedFunction: () async {
                           _emailFormKey.currentState!.validate();
                           if (_emailIsValid) {
