@@ -13,6 +13,7 @@ class UserService {
     String? lastName,
     String? email,
     String? id,
+    bool? admin,
   }) async {
     try {
       _firebase
@@ -23,6 +24,7 @@ class UserService {
         'last_name': lastName,
         'email': email,
         'id': id,
+        'admin': false,
       });
     } catch (e) {
       print(e);

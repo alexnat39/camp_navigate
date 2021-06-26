@@ -1,4 +1,4 @@
-import 'package:auto_size_text/auto_size_text.dart';
+
 import 'package:camp_navigate/CustomWidgets/UniversalWidgets/AppBarWidgets/container_app_bar.dart';
 import 'package:camp_navigate/CustomWidgets/UniversalWidgets/custom_universal_button.dart';
 import 'package:camp_navigate/CustomWidgets/UniversalWidgets/show_alert.dart';
