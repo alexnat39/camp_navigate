@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
 
 class Activity {
-  String name;
+  String title;
   int points;
-  Icon icon;
 
-  Activity( {required this.name, required this.points, required this.icon} );
+
+  Activity(this.title, this.points);
+
+  Map<String, dynamic> toMap() {
+  var data = Map<String, dynamic>();
+  data['title'] = title;
+  data['points'] =points;
+  return data;
+  }
 }
