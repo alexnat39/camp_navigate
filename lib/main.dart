@@ -1,5 +1,6 @@
 import 'package:camp_navigate/Pages/AuthPages/login_page.dart';
 import 'package:camp_navigate/Pages/AuthPages/welcome_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +11,9 @@ import 'Models/UserVM.dart';
 import 'Pages/AuthPages/reset_password_page.dart';
 import 'Pages/AuthPages/sign_up_page.dart';
 import 'Pages/home_page.dart';
+import 'Pages/TrackerPages/mental_health_tracker_page.dart';
+import 'Pages/TrackerPages/nutrition_tracker_page.dart';
+import 'Pages/TrackerPages/physical_activities_tracker_page.dart';
 import 'Services/authentication_service.dart';
 import 'Services/user_service.dart';
 
@@ -68,16 +72,16 @@ class _MyAppState extends State<MyApp> {
           theme: ThemeData(
             fontFamily: 'GothamPro',
           ),
-          initialRoute: '/welcome',
+          initialRoute: (FirebaseAuth.instance.currentUser != null) ? '/home' : '/welcome',
           routes: {
             "/home": (context) => HomePage(),
             "/welcome": (context) => WelcomeScreenPage(),
             "/login": (context) => LoginPage(),
             "/signup": (context) => SignUpPage(),
             "/reset_password": (context) => ResetPasswordPage(),
-            "/physical": (context) => PhysicalActivitiesTracker(),
-            "/nutrition": (context) => NutritionTracker(),
-            "/mental": (context) => MentalHealthTracker(),
+            "/physical": (context) => PhysicalActivitiesTrackerPage(),
+            "/nutrition": (context) => NutritionTrackerPage(),
+            "/mental": (context) => MentalHealthTrackerPage(),
           },
         ),
       ),
