@@ -1,5 +1,6 @@
 import 'package:camp_navigate/Pages/AuthPages/login_page.dart';
 import 'package:camp_navigate/Pages/AuthPages/welcome_page.dart';
+import 'package:camp_navigate/Pages/main_page.dart';
 import 'package:camp_navigate/Services/physical_activity_service.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -83,7 +84,7 @@ class _MyAppState extends State<MyApp> {
               ? '/home'
               : '/welcome',
           routes: {
-            "/home": (context) => HomePage(),
+            "/home": (context) => MainPage(),
             "/welcome": (context) => WelcomeScreenPage(),
             "/login": (context) => LoginPage(),
             "/signup": (context) => SignUpPage(),
