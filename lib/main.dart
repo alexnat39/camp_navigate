@@ -48,6 +48,7 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     if (FirebaseAuth.instance.currentUser != null) {
     admin =  fetchUserData();
+    print(admin);
     }
     super.initState();
   }
@@ -83,7 +84,7 @@ class _MyAppState extends State<MyApp> {
             fontFamily: 'GothamPro',
           ),
           initialRoute: (FirebaseAuth.instance.currentUser != null)
-              ? admin ? '/home':'/admin'
+              ? (fetchUserData() ? '/admin':'/admin')
               : '/welcome',
           routes: {
             "/home": (context) => MainPage(),
@@ -105,14 +106,14 @@ class _MyAppState extends State<MyApp> {
     bool admin = false;
     bool errorPresent = false;
     FirebaseFirestore.instance
-        .collection('Users')
+        .collection('users')
         .doc(FirebaseAuth.instance.currentUser!.uid)
         .get()
-        .then((value) => {admin = value['admin']}).catchError((e) =>  { errorPresent = true,Alert(
+        .then((value) => {admin = value['admin'],print(admin)}).catchError((e) =>  { errorPresent = true,Alert(
         context: context,
         type: AlertType.error,
         title: "Something went wrong.",
-        desc: 'Please try to scan again.',
+        desc: 'Please try again.',
         buttons: [
           DialogButton(
             onPressed: () {
