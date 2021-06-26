@@ -22,7 +22,7 @@ class _RewardsPageState extends State<RewardsPage> {
     double? height = CustomSizes(context).getHeight(context);
     double? width = CustomSizes(context).getWidth(context);
     return RefreshIndicator(
-      color: CustomColors.PURPLE,
+      color: CustomColors.BLUE,
       child: PaginateFirestore(
         padding: EdgeInsets.all(0),
         shrinkWrap: true,

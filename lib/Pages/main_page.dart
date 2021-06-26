@@ -33,7 +33,7 @@ class _MainPageState extends State<MainPage> {
     return Scaffold(
       backgroundColor: CustomColors.WHITE,
       body: ListView(
-        padding: EdgeInsets.zero,
+       // padding: EdgeInsets.zero,
         physics: NeverScrollableScrollPhysics(),
         children: [
           CustomContainerAppBar(
