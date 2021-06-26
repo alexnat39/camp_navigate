@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>973397856528-95uorq946cv8g005kghoaspbq3ue5f92.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.973397856528-95uorq946cv8g005kghoaspbq3ue5f92</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBfpzGcHiARgjy6LuECSCTAsBrbjB9FmD0</string>
+	<key>GCM_SENDER_ID</key>
+	<string>973397856528</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.campNavigate</string>
+	<key>PROJECT_ID</key>
+	<string>camp-navigate</string>
+	<key>STORAGE_BUCKET</key>
+	<string>camp-navigate.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:973397856528:ios:a297b31509df6d8eec1595</string>
+</dict>
+</plist>

@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "973397856528",
+    "project_id": "camp-navigate",
+    "storage_bucket": "camp-navigate.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:973397856528:android:274c3be3497d43c6ec1595",
+        "android_client_info": {
+          "package_name": "com.example.camp_navigate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "973397856528-6sl5qjmrfbudh13vlm6rr4g01ik4o5f5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFG7YdS97Xz56BgF0rZvIJ3jv89IYBJLw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "973397856528-6sl5qjmrfbudh13vlm6rr4g01ik4o5f5.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "973397856528-95uorq946cv8g005kghoaspbq3ue5f92.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.campNavigate"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

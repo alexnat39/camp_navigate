@@ -62,25 +62,22 @@ class _MyAppState extends State<MyApp> {
         else
           return true;
       },
-      child: MultiProvider(
-        providers: [],
-        child: MaterialApp(
-          debugShowCheckedModeBanner: false,
-          builder: (context, child) {
-            return ScrollConfiguration(
-              behavior: NoGlowBehavior(),
-              child: child!,
-            );
-          },
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        builder: (context, child) {
+          return ScrollConfiguration(
+            behavior: NoGlowBehavior(),
+            child: child!,
+          );
+        },
 
-          theme: ThemeData(
-            fontFamily: 'GothamPro',
-          ),
-          initialRoute: '/home',
-          routes: {
-            "/home": (context) => HomePage(),
-          },
+        theme: ThemeData(
+          fontFamily: 'GothamPro',
         ),
+        initialRoute: '/home',
+        routes: {
+          "/home": (context) => HomePage(),
+        },
       ),
     );
   }
