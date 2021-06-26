@@ -18,7 +18,6 @@ void setupLocator() {
   GetIt.instance.registerLazySingleton(() => UserService());
 }
 
-
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -76,6 +75,9 @@ class _MyAppState extends State<MyApp> {
             "/login": (context) => LoginPage(),
             "/signup": (context) => SignUpPage(),
             "/reset_password": (context) => ResetPasswordPage(),
+            "/physical": (context) => PhysicalActivitiesTracker(),
+            "/nutrition": (context) => NutritionTracker(),
+            "/mental": (context) => MentalHealthTracker(),
           },
         ),
       ),
