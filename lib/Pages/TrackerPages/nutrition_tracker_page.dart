@@ -33,6 +33,7 @@ class _NutritionTrackerPageState extends State<NutritionTrackerPage> {
       "Eat 5 servings of veggies (3 cups)",
       "No soda/sugary beverages",
       "Eat breakfast",
+      "Kept a food log",
     ];
     super.initState();
   }
@@ -121,11 +122,24 @@ class _NutritionTrackerPageState extends State<NutritionTrackerPage> {
                       showAlert(context, "An error occurred");
                     }
                   },) : Container()
+
                 ],
               ),
             ),
           ],
-        )
+        ),
+
+    floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+    floatingActionButton: FloatingActionButton.extended(
+      //navigate to scan a receipt page
+      onPressed: () {},
+      label: Text(
+        'Scan a receipt'
+      ),
+      icon: Icon(Icons.add),
+    ),
+
+
     );
   }
 }
