@@ -14,6 +14,7 @@ class _HomePageState extends State<HomePage> {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
+        SizedBox(height: 100),
         CustomPhysicalButton(
             func: () => Navigator.pushNamed(context, "/physical")),
         SizedBox(height: 50),

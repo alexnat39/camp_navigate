@@ -130,14 +130,22 @@ class _NutritionTrackerPageState extends State<NutritionTrackerPage> {
         ),
 
     floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-    floatingActionButton: FloatingActionButton.extended(
-      //navigate to scan a receipt page
-      onPressed: () {},
-      label: Text(
-        'Scan a receipt'
+    floatingActionButton: Container(
+      height: 100,
+      child: FloatingActionButton.extended(
+        //navigate to scan a receipt page
+        onPressed: () {},
+        label: Text(
+          'Scan a receipt',
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        icon: Icon(Icons.add),
+        backgroundColor: CustomColors.NUTRITION,
+        elevation: 2,
       ),
-      icon: Icon(Icons.add),
-      backgroundColor: CustomColors.NUTRITION,
     ),
 
 
