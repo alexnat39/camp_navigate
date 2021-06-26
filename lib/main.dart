@@ -1,5 +1,6 @@
 import 'package:camp_navigate/Pages/AuthPages/login_page.dart';
 import 'package:camp_navigate/Pages/AuthPages/welcome_page.dart';
+import 'package:camp_navigate/Services/physical_activity_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
@@ -20,6 +21,8 @@ import 'Services/user_service.dart';
 void setupLocator() {
   GetIt.instance.registerLazySingleton(() => AuthenticationService());
   GetIt.instance.registerLazySingleton(() => UserService());
+  GetIt.instance.registerLazySingleton(() => PhysicalActivityService());
+
 }
 
 Future<void> main() async {
