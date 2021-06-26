@@ -49,10 +49,14 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
 
+        SizedBox(height: 30),
+
         CustomPhysicalButton(
             func: () => Navigator.pushNamed(context, "/physical")),
+        SizedBox(height: 50),
         CustomNutritionButton(
             func: () => Navigator.pushNamed(context, "/nutrition")),
+        SizedBox(height: 50),
         CustomMentalHealthButton(
             func: () => Navigator.pushNamed(context, "/mental")),
       ],
