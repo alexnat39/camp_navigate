@@ -137,6 +137,7 @@ class _NutritionTrackerPageState extends State<NutritionTrackerPage> {
         'Scan a receipt'
       ),
       icon: Icon(Icons.add),
+      backgroundColor: CustomColors.NUTRITION,
     ),
 
 
