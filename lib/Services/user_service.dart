@@ -25,6 +25,9 @@ class UserService {
         'email': email,
         'id': id,
         'admin': false,
+        'totalPoints': 0,
+        'physicalActivityPoints': 0,
+        'mentalHealthPoints':0
       });
     } catch (e) {
       print(e);

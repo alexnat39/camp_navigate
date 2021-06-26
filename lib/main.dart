@@ -1,5 +1,7 @@
+import 'package:camp_navigate/Admin/admin.dart';
 import 'package:camp_navigate/Pages/AuthPages/login_page.dart';
 import 'package:camp_navigate/Pages/AuthPages/welcome_page.dart';
+import 'package:camp_navigate/Pages/main_page.dart';
 import 'package:camp_navigate/Services/physical_activity_service.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -41,10 +43,11 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+   bool admin = false;
   @override
   void initState() {
     if (FirebaseAuth.instance.currentUser != null) {
-      fetchUserData();
+    admin =  fetchUserData();
     }
     super.initState();
   }
@@ -80,10 +83,11 @@ class _MyAppState extends State<MyApp> {
             fontFamily: 'GothamPro',
           ),
           initialRoute: (FirebaseAuth.instance.currentUser != null)
-              ? '/home'
+              ? admin ? '/home':'/admin'
               : '/welcome',
           routes: {
-            "/home": (context) => HomePage(),
+            "/home": (context) => MainPage(),
+            '/admin': (context) => Admin(),
             "/welcome": (context) => WelcomeScreenPage(),
             "/login": (context) => LoginPage(),
             "/signup": (context) => SignUpPage(),

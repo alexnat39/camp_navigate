@@ -27,7 +27,8 @@ class UserVM with ChangeNotifier {
       this.mentalHealthPoints,
       this.healthyPoints,
       this.age,
-      this.gender});
+      this.gender,
+      });
 
   void updateEmail(String newEmail) {
     email = newEmail;
