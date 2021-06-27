@@ -33,7 +33,7 @@ class _SubmitReciptState extends State<SubmitRecipt> {
 
                           FormBuilderImagePicker(
                             name: 'image',
-                            decoration: const InputDecoration(labelText: 'Logo'),
+                            decoration: const InputDecoration(labelText: 'Receipt'),
                             maxImages: 1,
                             validator: FormBuilderValidators.compose([
                               FormBuilderValidators.required(context),

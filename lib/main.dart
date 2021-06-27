@@ -81,7 +81,7 @@ class _MyAppState extends State<MyApp> {
               email: _prefs!.getString("email"),
               firstName: _prefs!.getString("first_name"),
               lastName: _prefs!.getString("last_name"),
-              totalPoints: _prefs!.getInt("total_points"),
+              totalPoints: _prefs!.getInt("totalPoints"),
             ) : UserVM(),
           ),
         ],

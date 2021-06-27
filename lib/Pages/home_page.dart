@@ -41,7 +41,7 @@ class _HomePageState extends State<HomePage> {
                     onTap: ()  {
                     },
                     title: Text(pointTypes[index]),
-                    trailing: Text('5'),
+                    trailing: (pointTypes[index].compareTo('Total Points: ')==0) ?Text('600'):Text('200'),
                   ),
                 ),
               );

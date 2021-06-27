@@ -16,9 +16,6 @@ class _MainPageState extends State<MainPage> {
   static List<Widget> _widgetOptions = <Widget>[
     HomePage(),
     RewardsPage(),
-    Text(
-      'Index 2: School',
-    ),
   ];
   int _selectedIndex = 0;
 
@@ -37,7 +34,7 @@ class _MainPageState extends State<MainPage> {
         physics: NeverScrollableScrollPhysics(),
         children: [
           CustomContainerAppBar(
-            title: "Camp Navigate",
+            title: "Healthy Habits",
             isInitialPage: true,
             isLogOutButtonNeeded: true,
           ),
@@ -56,11 +53,11 @@ class _MainPageState extends State<MainPage> {
             label: 'Rewards',
             backgroundColor: Colors.green,
           ),
-          BottomNavigationBarItem(
+        /*  BottomNavigationBarItem(
             icon: Icon(Icons.settings),
             label: 'More',
             backgroundColor: Colors.pink,
-          ),
+          ),*/
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.amber[800],

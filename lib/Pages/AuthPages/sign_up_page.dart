@@ -342,13 +342,13 @@ class _SignUpPageState extends State<SignUpPage> {
                                           email: _emailController.text,
                                           id: FirebaseAuth.instance.currentUser!.uid);
                                       await userService.fetchUserData().then((data) async {
-                                        print(data);
+                                        print(data['totalPoints']);
                                         var _userVM = Provider.of<UserVM>(context,
                                             listen: false);
                                         _userVM.firstName = data['first_name'];
                                         _userVM.lastName = data['last_name'];
                                         _userVM.email = data['email'];
-                                        _userVM.totalPoints = data['total_points'];
+                                        _userVM.totalPoints = data['totalPoints'];
                                         _userVM.password = _passwordController.text;
                                         _userVM.id =
                                             FirebaseAuth.instance.currentUser!.uid;
@@ -363,7 +363,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                         _prefs.setString(
                                             "last_name", data['last_name']);
                                         _prefs.setInt(
-                                            "total_points", data['total_points']);
+                                            "totalPoints", data['totalPoints']);
                                         _prefs.setString(
                                             "id", data['id']);
                                       });
@@ -371,7 +371,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                       Navigator.pop(context);
                                       Navigator.pushNamed(context, "/home");
                                     } catch (e) {
-                                      print(e);
+                                      print('374:$e');
                                       //popping loading dialog
                                       Navigator.pop(context);
                                       showAlert(context, "An error occurred");

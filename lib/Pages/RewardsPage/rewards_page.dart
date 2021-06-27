@@ -33,7 +33,9 @@ class _RewardsPageState extends State<RewardsPage> {
         itemBuilder: (index, context, documentSnapshot) {
           final reward = documentSnapshot.data() as Map?;
           return Consumer<UserVM>(
+
             builder: (BuildContext context, myUserVM, Widget? child) {
+              print(myUserVM.totalPoints);
               return ListView(
                 shrinkWrap: true,
                 padding: EdgeInsets.all(0),
@@ -84,14 +86,17 @@ class _RewardsPageState extends State<RewardsPage> {
                                             linkColor: CustomColors.LIGHTGREY,
                                             style: TextStyle(
                                                 fontSize: 14, fontWeight: FontWeight.w400)),
-                                      ),
+                                      ),Padding(
+                                        padding: const EdgeInsets.only(top:20),
+                                        child: Text('Need ${reward['points']} points'),
+                                      )
                                     ]),
                                   )
                                 ]),
                           ),
                           (myUserVM.totalPoints! >= reward['points']) ? Container() : Container(
                             child: BackdropFilter(
-                              filter: ImageFilter.blur(sigmaX: 2.0, sigmaY: 2.0),
+                              filter: ImageFilter.blur(sigmaX: 0.4, sigmaY: 0.4),
                               child: Container(
                                 decoration: BoxDecoration(color: Colors.white.withOpacity(0.0)),
                               ),

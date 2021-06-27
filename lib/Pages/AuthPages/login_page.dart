@@ -166,7 +166,7 @@ class _LoginPageState extends State<LoginPage> {
                                       _userVM.firstName = data['first_name'];
                                       _userVM.lastName = data['last_name'];
                                       _userVM.email = data['email'];
-                                      _userVM.totalPoints = data['total_points'];
+                                      _userVM.totalPoints = data['totalPoints'];
                                       _userVM.password = _passwordController.text;
                                       _userVM.id =
                                           FirebaseAuth.instance.currentUser!.uid;
@@ -181,7 +181,7 @@ class _LoginPageState extends State<LoginPage> {
                                       _prefs.setString(
                                           "last_name", data['last_name']);
                                       _prefs.setInt(
-                                          "total_points", data['total_points']);
+                                          "total_points", data['totalPoints']);
                                       _prefs.setString(
                                           "id", data['id']);
                                       //hiding loading dialog
